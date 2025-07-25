@@ -1,0 +1,228 @@
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    /* Colors - New Green Palette */
+    --nyanza: #d8f3dcff;
+    --celadon: #b7e4c7ff;
+    --celadon-2: #95d5b2ff;
+    --mint: #74c69dff;
+    --mint-2: #52b788ff;
+    --sea-green: #40916cff;
+    --dartmouth-green: #2d6a4fff;
+    --brunswick-green: #1b4332ff;
+    --dark-green: #081c15ff;
+    
+    /* Updated Color System */
+    --primary-dark: var(--dark-green);
+    --primary-medium: var(--dartmouth-green);
+    --primary-light: var(--celadon);
+    --primary-cream: var(--nyanza);
+    
+    --dark-bg: var(--dark-green);
+    --darker-bg: var(--brunswick-green);
+    --card-bg: rgba(8, 28, 21, 0.9);
+    --text-primary: var(--nyanza);
+    --text-secondary: var(--celadon);
+    --gradient-primary: linear-gradient(135deg, var(--sea-green) 0%, var(--mint) 100%);
+    --gradient-secondary: linear-gradient(135deg, var(--dartmouth-green) 0%, var(--sea-green) 100%);
+    --gradient-accent: linear-gradient(135deg, var(--mint-2) 0%, var(--nyanza) 100%);
+    
+    /* Spacing */
+    --spacing-xs: 0.5rem;
+    --spacing-sm: 1rem;
+    --spacing-md: 1.5rem;
+    --spacing-lg: 2rem;
+    --spacing-xl: 3rem;
+    --spacing-2xl: 4rem;
+    
+    /* Typography */
+    --font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    --font-size-xs: 0.75rem;
+    --font-size-sm: 0.875rem;
+    --font-size-base: 1rem;
+    --font-size-lg: 1.125rem;
+    --font-size-xl: 1.25rem;
+    --font-size-2xl: 1.5rem;
+    --font-size-3xl: 1.875rem;
+    --font-size-4xl: 2.25rem;
+    --font-size-5xl: 3rem;
+    
+    /* Border Radius */
+    --radius-sm: 0.375rem;
+    --radius-md: 0.5rem;
+    --radius-lg: 0.75rem;
+    --radius-xl: 1rem;
+    
+    /* Shadows */
+    --shadow-sm: 0 1px 2px 0 rgba(8, 28, 21, 0.15);
+    --shadow-md: 0 4px 6px -1px rgba(8, 28, 21, 0.2);
+    --shadow-lg: 0 10px 15px -3px rgba(8, 28, 21, 0.2);
+    --shadow-xl: 0 20px 25px -5px rgba(8, 28, 21, 0.2);
+    --shadow-glow: 0 0 50px rgba(64, 145, 108, 0.3);
+}
+
+body {
+    font-family: var(--font-family);
+    background: var(--dark-bg);
+    color: var(--text-primary);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+        radial-gradient(circle at 20% 50%, rgba(64, 145, 108, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(116, 198, 157, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 40% 80%, rgba(183, 228, 199, 0.1) 0%, transparent 50%);
+    z-index: -1;
+    pointer-events: none;
+}
+
+/* Container */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--spacing-lg);
+}
+
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 600;
+    line-height: 1.2;
+    margin-bottom: var(--spacing-md);
+}
+
+.section-title {
+    font-size: var(--font-size-3xl);
+    font-weight: 700;
+    margin-bottom: var(--spacing-xl);
+    text-align: center;
+}
+
+.section-title.center {
+    text-align: center;
+}
+
+.section-subtitle {
+    font-size: var(--font-size-lg);
+    color: var(--text-secondary);
+    text-align: center;
+    margin-bottom: var(--spacing-xl);
+}
+
+.gradient-text {
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.highlight {
+    color: var(--text-secondary);
+    font-size: var(--font-size-sm);
+}
+
+/* Buttons */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+    padding: var(--spacing-sm) var(--spacing-lg);
+    border: none;
+    border-radius: var(--radius-lg);
+    font-size: var(--font-size-base);
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+
+.btn-primary {
+    background: var(--gradient-primary);
+    color: white;
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-glow);
+}
+
+.btn-secondary {
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.btn-secondary:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+/* Smooth scrolling */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Section spacing */
+section {
+    padding: var(--spacing-2xl) 0;
+}
+
+/* Animations */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes pulse {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.5;
+    }
+}
+
+@keyframes glow {
+    0%, 100% {
+        box-shadow: 0 0 20px rgba(64, 145, 108, 0.3);
+    }
+    50% {
+        box-shadow: 0 0 40px rgba(64, 145, 108, 0.6);
+    }
+}
+
+/* Utility classes */
+.text-center {
+    text-align: center;
+}
+
+.mb-0 { margin-bottom: 0; }
+.mb-1 { margin-bottom: var(--spacing-xs); }
+.mb-2 { margin-bottom: var(--spacing-sm); }
+.mb-3 { margin-bottom: var(--spacing-md); }
+.mb-4 { margin-bottom: var(--spacing-lg); }
+.mb-5 { margin-bottom: var(--spacing-xl); }
+
+.mt-0 { margin-top: 0; }
+.mt-1 { margin-top: var(--spacing-xs); }
+.mt-2 { margin-top: var(--spacing-sm); }
+.mt-3 { margin-top: var(--spacing-md); }
+.mt-4 { margin-top: var(--spacing-lg); }
+.mt-5 { margin-top: var(--spacing-xl); }
