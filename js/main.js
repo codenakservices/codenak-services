@@ -465,7 +465,6 @@ class FAQHandler {
 document.addEventListener('DOMContentLoaded', () => {
     new Navigation();
     new SmoothScroll();
-    new FormHandler();
     new ScrollAnimations();
     new PerformanceOptimizer();
     new FAQHandler();
